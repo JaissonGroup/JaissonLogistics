@@ -240,3 +240,23 @@ body{
   pointer-events:none;
   box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
 }
+
+/* ====== PORTOS (ajuste visual) ====== */
+.ports .cont-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.ports .cont-card {
+  width: 100%;
+  height: 100%;
+}
+
+.ports .cont-media {
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
