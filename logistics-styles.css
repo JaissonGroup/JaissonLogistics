@@ -913,3 +913,119 @@ body{
   transform: scale(1.01);
 }
 
+/* ===== Rastreamento (centralização + loading) ===== */
+.tracker-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.vessel-map {
+  width: 90%;
+  max-width: 1200px;
+  height: 800px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Spinner de carregamento */
+.loading-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  border: 6px solid #dbeafe;
+  border-top-color: #0E4B71;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+/* ===== Rastreamento (centralizado + loading) ===== */
+.tracker-section {
+  padding: 60px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+.tracker-wrap {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;              /* centraliza */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,.10);
+  background: #fff;
+}
+.tracker-wrap iframe { display:block; width:100%; height:800px; border:0 }
+
+/* Spinner */
+.loading-spinner {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 64px; height: 64px;
+  border: 6px solid #dbeafe;
+  border-top-color: #0E4B71;   /* azul oceano */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.vesseltracker{
+  z-index: 100;
+}
+
+/* ===== Rastreamento: spinner sempre presente + troca de z-index ===== */
+.tracker-section { padding: 60px 0; background: linear-gradient(180deg,#f8fafc 0%,#f1f5f9 100%); }
+
+.tracker-wrap{
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 800px;                 /* garante sobreposição absoluta */
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(0,0,0,.10);
+}
+
+/* spinner sempre renderizado */
+.tracker-wrap .loading-spinner{
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 64px; height: 64px;
+  border: 6px solid #dbeafe;
+  border-top-color: #0E4B71;     /* azul oceano */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+  z-index: 3;                    /* por cima ENQUANTO o mapa não está pronto */
+  pointer-events: none;
+}
+
+.tracker-wrap iframe{
+  position: absolute;
+  inset: 0;                      /* ocupa 100% do wrapper */
+  border: 0;
+  z-index: 1;                    /* começa atrás do spinner */
+}
+
+/* quando o mapa estiver pronto, só trocamos a ordem */
+.tracker-wrap.map-ready iframe{ z-index: 4; }  /* mapa passa a cobrir o spinner */
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+@media (max-width: 800px){
+  .tracker-wrap{ height: 600px; }
+}

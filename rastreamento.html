@@ -37,6 +37,46 @@
     </div>
   </header>
 
+<!-- Rastreador de Navios (spinner sempre presente + z-index) -->
+<section class="tracker-section">
+  <div class="container">
+    <div class="tracker-wrap" id="tracker-wrap">
+      <!-- spinner fica SEMPRE no DOM -->
+      <div class="loading-spinner"></div>
+
+      <!-- variáveis do VesselFinder: precisam vir antes do script -->
+      <script>
+        var width = "100%";
+        var height = "800";
+        var latitude = "-4";
+        var longitude = "-77.86";
+        var zoom = "3";
+        var names = false;
+      </script>
+      <!-- o iframe do mapa será injetado exatamente aqui -->
+      <script src="https://www.vesselfinder.com/aismap.js" id="vf-script"></script>
+
+      <script>
+        // quando o iframe aparecer e carregar, o mapa ganha prioridade no z-index
+        (function () {
+          const wrap = document.getElementById('tracker-wrap');
+          const obs = new MutationObserver(() => {
+            const iframe = wrap.querySelector('iframe');
+            if (iframe) {
+              iframe.addEventListener('load', () => wrap.classList.add('map-ready'));
+              // fallback: garante z-index do mapa depois de 5s mesmo se o evento falhar
+              setTimeout(() => wrap.classList.add('map-ready'), 5000);
+              obs.disconnect();
+            }
+          });
+          obs.observe(wrap, { childList: true, subtree: true });
+        })();
+      </script>
+    </div>
+  </div>
+</section>
+
+
 
 
    <!-- Footer -->
