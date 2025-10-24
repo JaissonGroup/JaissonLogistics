@@ -3,25 +3,133 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Em construção — Jaisson Logistics</title>
+  <title>ESG — Jaisson Logistics</title>
+  <meta name="description" content="Iniciativas de ESG da Jaisson Logistics: ambiental, social e governança." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{ --ink:#0f172a; --muted:#6b7280 }
-    *{box-sizing:border-box} body{margin:0; font-family:Inter, system-ui; color:var(--ink)}
-    .wrap{ min-height:100vh; display:grid; place-items:center; padding:40px }
-    .card{ max-width:720px; border:1px solid #e5e7eb; border-radius:16px; padding:24px; text-align:center }
-    h1{ margin:8px 0 4px } p{ margin:0; color:var(--muted) }
-    a{ display:inline-block; margin-top:14px; text-decoration:none; font-weight:700; color:#0E4B71 }
-  </style>
+  <link rel="stylesheet" href="logistics-styles.css" />
+  <link rel="stylesheet" href="esg.css" />
+  <link rel="icon" href="jaisson-logistics.png" />
 </head>
 <body>
-  <main class="wrap">
-    <div class="card">
-      <h1>Página em construção</h1>
-      <p>Em breve conteúdo completo desta seção.</p>
-      <a href="index.html">← Voltar para a landing</a>
+  <!-- Header (igual ao restante do site de Logistics) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="jaisson-logistics-text-transp.png" alt="Jaisson Logistics" width="180" height="28" />
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Abrir menu" />
+      <label for="nav-toggle" class="hamburger" aria-hidden="true"><span></span><span></span><span></span></label>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html#areas">Operações</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="frota.html">Frota</a></li>
+          <li><a href="portos.html">Portos</a></li>
+          <li><a href="rotas.html">Rotas</a></li>
+          <li><a href="rastreamento.html">Rastreamento</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a class="active" href="esg.html" aria-current="page">ESG</a></li>
+          <li class="sep"></li>
+          <li><a class="github-link" href="https://github.com/JaissonGroup/JaissonLogistics" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
     </div>
-  </main>
+  </header>
+
+  <!-- HERO ESG -->
+  <section class="sust-hero">
+    <div class="container">
+      <span class="pill">ESG</span>
+      <h1>Sustentabilidade na Jaisson Logistics</h1>
+      <p>Compromisso ambiental, social e de governança aplicado à cadeia marítima.</p>
+    </div>
+  </section>
+
+
+  <!-- Iniciativas (mesma estrutura da Rações; você atualiza os conteúdos) -->
+  <section class="initiatives">
+    <div class="container">
+      <!-- Card 1 -->
+      <article class="initiative-card">
+        <div class="initiative-img" style="--ph:url('https://www.bigoceandata.com/wp-content/uploads/2025/04/Route_Optimisation_BigOceanData-1-1024x517.jpg')"></div>
+        <div class="initiative-info">
+          <h3>Otimização de rotas</h3>
+          <p>Otimização de rotas, garantido a melhor eficiencia e menos emissões.</p>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="initiative-card">
+        <div class="initiative-img" style="--ph:url('https://kentico.portoflosangeles.org/getattachment/90d0bf7d-1975-4a16-937d-cfbdcdc82356/attachment.aspx')"></div>
+        <div class="initiative-info">
+          <h3>Placa solar no porto</h3>
+          <p>Parcerias com terminais portuarios para a implementação de placas solares.</p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="initiative-card">
+        <div class="initiative-img" style="--ph:url('https://c.files.bbci.co.uk/1C15/production/_132898170_pyxisnewimage.jpg')"></div>
+        <div class="initiative-info">
+          <h3>Inovação</h3>
+          <p>Testes com novas tecnologias e inovações tecnológicas para navios eolicos.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Métricas/Blocos ESG com imagem (idêntico ao da Rações) -->
+  <section class="esg-metrics">
+    <div class="container">
+      <h2>Ambiental • Social • Governança</h2>
+
+      <div class="esg-stack">
+        <article class="esg-item">
+          <div class="esg-img" style="--ph:url('https://www.science.org/do/10.1126/science.aaw5442/abs/fishdiscard_16x9.jpg')"></div>
+          <div class="esg-info">
+            <h3>Incentivamos a vida marinha</h3>
+            <p>Nossa tripulação sempre devolve os peixes pescados.</p>
+          </div>
+        </article>
+
+        <article class="esg-item">
+          <div class="esg-img" style="--ph:url('https://i.ibb.co/mCJFTxcb/Gemini-Generated-Image-umlwtqumlwtqumlw.png')"></div>
+          <div class="esg-info">
+            <h3>Reciclagem e Reutilizacão de Contêineres</h3>
+            <p>Nosso containers sao construidos com materiais reciclaveis. Alem disso, no fim de sua vida util, as vezes reutilizamos nossos containers.</p>
+          </div>
+        </article>
+
+        <article class="esg-item">
+          <div class="esg-img" style="--ph:url('https://i.redd.it/39hvucmkymma1.png')"></div>
+          <div class="esg-info">
+            <h3>98% dos colaboradores treinados</h3>
+            <p>Formações contínuas em ética, inovação e sustentabilidade garantem que o ESG esteja presente em todas as decisões.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="f-col"><strong>JAISSON LOGISTICS</strong><p class="f-copy">© 2025. Todos os direitos reservados.</p></div>
+      <nav class="f-nav">
+        <a href="index.html#areas">Operações</a>
+        <a href="containers.html">Containers</a>
+        <a href="frota.html">Frota</a>
+        <a href="portos.html">Portos</a>
+        <a href="rotas.html">Rotas</a>
+        <a href="rastreamento.html">Rastreamento</a>
+        <a href="esg.html" aria-current="page">ESG</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <p class="f-small">feito com foco em <strong>resultado</strong></p>
+    </div>
+  </footer>
 </body>
 </html>
