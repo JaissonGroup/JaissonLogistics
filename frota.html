@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frota — Jaisson Logistics</title>
+  <meta name="description" content="Classes Panamax e Neopanamax com capacidades, dimensões e custos operacionais." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="logistics-styles.css" />
+  <link rel="icon" href="jaisson-logistics-logo-transp.png" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="jaisson-logistics-text-transp.png" alt="Jaisson Logistics" width="180" height="28" />
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Abrir menu" />
+      <label for="nav-toggle" class="hamburger" aria-hidden="true"><span></span><span></span><span></span></label>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html#areas">Operações</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="frota.html" aria-current="page">Frota</a></li>
+          <li><a href="portos.html">Portos</a></li>
+          <li><a href="rotas.html">Rotas</a></li>
+          <li><a href="rastreamento.html">Rastreamento</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="esg.html">ESG</a></li>
+          <li class="sep"></li>
+          <li><a class="github-link" href="https://github.com/JaissonGroup/JaissonLogistics" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page page-fleet">
+    <section class="container page-head">
+      <h1>Frota</h1>
+      <p class="sub">Nossa frota de navios.</p>
+    </section>
+
+    <section class="container fleet-grid">
+      <!-- PANAMAX -->
+      <article class="fleet-card theme-panamax">
+        <figure class="fleet-media" style="--ph: url('https://i.ibb.co/bMWRF17K/Maersk-Virginia.png')"></figure>
+        <div class="fleet-body">
+          <h2>Panamax</h2>
+
+          <div class="fleet-sections">
+            <div class="fleet-block">
+              <h3>Especificações</h3>
+              <dl class="specs">
+                <div><dt>Tamanho (comprimento)</dt><dd>294 m</dd></div>
+                <div><dt>Peso máx. de carga</dt><dd>67.500 t</dd></div>
+                <div><dt>Boca máx.</dt><dd>≈ 32,3 m</dd></div>
+                <div><dt>Calado máx.</dt><dd>≈ 12 m</dd></div>
+                <div><dt>Capacidade</dt><dd>5.000 TEUs</dd></div>
+              </dl>
+            </div>
+
+            <div class="fleet-block">
+              <h3>Custos operacionais</h3>
+              <dl class="costs">
+                <div><dt>OpEx (tripulação, manutenção, seguro)</dt><dd>US$ 20.000/dia</dd></div>
+                <div><dt>Consumo de combustível</dt><dd>80 t/dia</dd></div>
+                <div><dt>Valor da tonelada</dt><dd>US$ 650 × 80 = US$ 52.000/dia</dd></div>
+                <div class="total"><dt>Total (OpEx + combustível)</dt><dd><strong>US$ 72.000/dia</strong></dd></div>
+                <div class="note"><dt>Pedágio Canal do Panamá*</dt><dd>US$ 450.000</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- NEOPANAMAX -->
+      <article class="fleet-card theme-neopanamax">
+        <figure class="fleet-media" style="--ph: url('https://i.ibb.co/fYKj2n6d/image-61.png')"></figure>
+        <div class="fleet-body">
+          <h2>NeoPanamax</h2>
+
+          <div class="fleet-sections">
+            <div class="fleet-block">
+              <h3>Especificações</h3>
+              <dl class="specs">
+                <div><dt>Tamanho (comprimento)</dt><dd>366 m</dd></div>
+                <div><dt>Peso máx. de carga</dt><dd>135.000 t</dd></div>
+                <div><dt>Boca máx.</dt><dd>≈ 49 m</dd></div>
+                <div><dt>Calado máx.</dt><dd>≈ 15,2 m</dd></div>
+                <div><dt>Capacidade</dt><dd>14.000–15.000 TEUs</dd></div>
+              </dl>
+            </div>
+
+            <div class="fleet-block">
+              <h3>Custos operacionais</h3>
+              <dl class="costs">
+                <div><dt>OpEx (tripulação, manutenção, seguro)</dt><dd>US$ 35.000/dia</dd></div>
+                <div><dt>Consumo de combustível</dt><dd>120 t/dia</dd></div>
+                <div><dt>Valor da tonelada</dt><dd>US$ 650 × 120 = US$ 78.000/dia</dd></div>
+                <div class="total"><dt>Total (OpEx + combustível)</dt><dd><strong>US$ 113.000/dia</strong></dd></div>
+                <div class="note"><dt>Pedágio Canal do Panamá*</dt><dd>US$ 1.500.000</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="f-col"><strong>JAISSON LOGISTICS</strong><p class="f-copy">© 2025. Todos os direitos reservados.</p></div>
+      <nav class="f-nav">
+        <a href="index.html#areas">Operações</a>
+        <a href="containers.html">Containers</a>
+        <a href="frota.html">Frota</a>
+        <a href="portos.html">Portos</a>
+        <a href="rotas.html">Rotas</a>
+        <a href="rastreamento.html">Rastreamento</a>
+        <a href="esg.html">ESG</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+      <p class="f-small">feito com foco em <strong>resultado</strong></p>
+    </div>
+  </footer>
+</body>
+</html>

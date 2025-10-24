@@ -1,0 +1,899 @@
+/* =========================
+   Jaisson Logistics — Landing (v1.1 mobile fix)
+   ========================= */
+
+:root{
+  --blue: #0E4B71;
+  --blue-700: #0b3a59;
+  --blue-50: #eaf4fb;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --bg: #ffffff;
+  --muted: #6b7280;
+  --radius: 18px;
+  --shadow: 0 8px 30px rgba(0,0,0,.10);
+  --headerH: 64px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  overflow-x:hidden; /* evita "quebra" lateral no mobile */
+}
+
+/* Containers */
+.container{ width:min(1120px, 92vw); margin-inline:auto }
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  background:#fff; border-bottom:1px solid #e5e7eb;
+  height: var(--headerH);
+}
+.header-inner{ height:100%; display:flex; align-items:center; justify-content:space-between }
+.brand img{ display:block; max-width: 180px; height:auto }
+
+.nav-toggle{ display:none }
+.hamburger{ display:none; cursor:pointer; padding:10px 8px; border-radius:10px }
+.hamburger span{ display:block; width:26px; height:2px; background:var(--ink); margin:6px 0; transition:.25s ease }
+.main-nav{ height:100% }
+.main-nav ul{ display:flex; gap:12px; list-style:none; margin:0; padding:0; align-items:center }
+.main-nav li.sep{ width:12px }
+.main-nav a{
+  text-decoration:none; font-weight:700; color:var(--ink-2);
+  padding:10px 12px; border-radius:12px; transition:.2s ease;
+  white-space:nowrap; /* evita quebrar rótulos */
+}
+.main-nav a:hover{ background:var(--blue-50); color:var(--blue-700) }
+.github-link{ display:inline-flex; align-items:center; gap:6px }
+
+/* Hero */
+.hero{ position:relative; isolation:isolate; padding:96px 0 88px; overflow:hidden }
+.hero-bg{
+  position:absolute; inset:0; z-index:-2;
+  background:
+    linear-gradient(to bottom, rgba(14,75,113,.55), rgba(14,75,113,.15) 45%, rgba(255,255,255,1) 85%),
+    var(--ph) center/cover no-repeat;
+  filter: saturate(1.05);
+}
+.hero-content{ max-width:820px; color:#082235 }
+.pill{
+  display:inline-block; background:#cfe8f7; color:#062136; font-weight:900; padding:6px 12px; border-radius:999px; letter-spacing:.2px;
+}
+.hero h1{ margin:14px 0 10px; line-height:1.05; font-size: clamp(30px, 5.2vw, 56px); color:#07263d }
+.hero p{ color:#0d3550; max-width:60ch }
+.hero-ctas{ display:flex; gap:12px; margin-top:22px; flex-wrap:wrap }
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  text-decoration:none; border-radius:12px; padding:12px 16px; font-weight:800;
+  border:2px solid transparent; transition: transform .04s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:active{ transform:translateY(1px) }
+.btn-fill{ background:var(--blue); color:#fff }
+.btn-fill:hover{ background:var(--blue-700) }
+.btn-fill.alt{ background:#F2CF63; color:#1a1a1a }
+.btn-fill.alt:hover{ filter:brightness(.97) }
+.btn-outline{ border-color:var(--blue); color:var(--blue) }
+.btn-outline:hover{ background:var(--blue-50); color:var(--blue-700) }
+
+/* Trustbar */
+.trustbar{
+  background:linear-gradient(0deg, #fff, #fff), radial-gradient(1200px 600px at -10% 120%, rgba(14,75,113,.10), transparent 60%) no-repeat;
+  padding:24px 0; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb;
+}
+.trustbar-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:16px }
+.trust-item{ display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:12px; background:#fff; box-shadow: var(--shadow) }
+.trust-item .icn{ font-size:22px }
+.trust-item strong{ display:block; line-height:1.15 }
+.trust-item span{ font-size:12px; color:var(--muted) }
+
+/* Áreas */
+.areas{ padding:54px 0 32px }
+.section-head h2{ font-size: clamp(24px, 4vw, 36px); margin:0 0 6px }
+.section-head p{ color:var(--muted); margin:0 0 18px }
+.areas-grid{ display:grid; gap:16px; grid-template-columns: repeat(3, 1fr) }
+.area-card{
+  position:relative; min-height: 260px; border-radius: var(--radius);
+  background:#0b2233; color:#fff; overflow:hidden; text-decoration:none; display:block;
+  box-shadow: var(--shadow); transform: translateZ(0);
+}
+.area-card::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)), var(--bg, transparent);
+  background-size: cover; background-position: center;
+  background-image: var(--bg);
+  transition: transform .6s ease, filter .6s ease;
+}
+.area-card:hover::before{ transform: scale(1.05); filter: saturate(1.05) }
+.area-card__layer{ position:absolute; inset:0; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding:18px }
+.area-card .tag{ display:inline-block; background:#e6f2fa; color:#052031; font-weight:900; font-size:12px; padding:4px 8px; border-radius:999px; margin-bottom:8px }
+.area-card h3{ margin:0 0 4px; font-size:22px; line-height:1.2 }
+.area-card p{ margin:0 0 2px; color:#e8f4fb }
+
+/* Sustentabilidade CTA */
+.cta-sustain{
+  background:
+    linear-gradient(90deg, rgba(14,75,113,1) 0%, rgba(14,75,113,.9) 60%, rgba(14,75,113,.85) 100%),
+    url('https://images.unsplash.com/photo-1542228262-3d663b306a87?q=80&w=1333&auto=format&fit=crop') center/cover no-repeat;
+  color:#fff; margin:40px 0; border-radius:20px;
+}
+.cta-sustain-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding:32px }
+.cta-sustain h3{ margin:0 0 6px; font-size: clamp(20px, 3vw, 28px) }
+.cta-sustain p{ margin:0; opacity:.95 }
+
+/* Sobre */
+.about{ padding:36px 0 64px }
+.about-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:center }
+.about-media .img-ph{
+  display:block; width:90%; aspect-ratio: 10/10; border-radius:20px; box-shadow: var(--shadow);
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.001), rgba(0,0,0,.01)),
+    var(--ph) center/contain no-repeat #fff;
+}
+.about-text h2{ margin:0 0 8px; font-size: clamp(22px, 3.6vw, 32px) }
+.about-text p{ margin: 0 0 12px; color: var(--ink-2) }
+.bullets{ margin: 0 0 14px; padding-left: 18px }
+.bullets li{ margin: 6px 0 }
+
+/* Footer */
+.site-footer{ border-top:1px solid #e5e7eb; margin-top:24px; background:#fff }
+.footer-grid{ display:grid; grid-template-columns: 1.1fr 1fr 1fr; gap:16px; padding:22px 0; align-items:center }
+.f-col .f-copy{ color:var(--muted); margin:8px 0 0 }
+.f-small{ color:var(--muted); margin:0; text-align:right }
+.f-nav{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center }
+.f-nav a{ color:var(--ink-2); text-decoration:none; padding:8px 10px; border-radius:10px }
+.f-nav a:hover{ background:var(--blue-50); color:var(--blue-700) }
+
+/* Responsivo */
+@media (max-width: 980px){
+  :root{ --headerH: 60px; }
+  .brand img{ max-width: 160px }
+  .main-nav a{ padding:8px 10px }
+  .areas-grid{ grid-template-columns: repeat(2, 1fr) }
+  .about-grid{ grid-template-columns: 1fr }
+  .cta-sustain-inner{ flex-direction:column; align-items:flex-start }
+  .footer-grid{ grid-template-columns: 1fr }
+  .f-small{ text-align:left }
+}
+@media (max-width: 780px){
+  :root{ --headerH: 58px; }
+  .brand img{ max-width: 150px }
+  .hamburger{ display:block }
+  /* menu mobile desce exatamente abaixo do header */
+  .main-nav{
+    position: fixed; top: var(--headerH); right:0; left:0; z-index: 999;
+    background:#fff; border-bottom:1px solid #e5e7eb; padding:10px 0 14px;
+    transform: translateY(-140%); transition: transform .25s ease;
+  }
+  .main-nav ul{ justify-content:center; flex-wrap:wrap; gap:8px; flex-direction: column; align-items: center;}
+  .main-nav a{ font-weight:600; padding:8px 10px }
+  .nav-toggle:checked ~ .hamburger span:nth-child(1){ transform: translateY(8px) rotate(45deg) }
+  .nav-toggle:checked ~ .hamburger span:nth-child(2){ opacity:0 }
+  .nav-toggle:checked ~ .hamburger span:nth-child(3){ transform: translateY(-8px) rotate(-45deg) }
+  .nav-toggle:checked ~ .main-nav{ transform: translateY(0) }
+}
+@media (max-width: 420px){
+  .brand img{ max-width: 136px }
+  .hero{ padding:84px 0 72px }
+}
+
+/* ===== Cards: faixa "Setor" azul e sem subtítulo ===== */
+.areas .area-card p{ display:none } /* oculta o texto pequeno */
+.areas .area-card h3{
+  font-size: clamp(22px, 2.4vw, 28px);
+  margin: 4px 0 6px;
+  font-weight: 800;
+}
+
+.areas .area-card .tag{
+  display:inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .25px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, #1b6aa6 0%, #0e4b71 100%); /* azul moderno */
+  box-shadow: 0 8px 24px rgba(14,75,113,.28), inset 0 1px 0 rgba(255,255,255,.25);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* ===== Ajuste visual das áreas (centralizado + subtítulo) ===== */
+
+/* container centralizado como na Rações */
+.areas .container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* grade responsiva com espaçamento igual da Rações */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+  justify-items: center;
+}
+
+/* cards com largura fixa proporcional */
+.area-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  background: #0b2233;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease;
+}
+.area-card:hover {
+  transform: translateY(-3px);
+}
+
+/* faixa azul moderna */
+.area-card .tag {
+  display:inline-block;
+  padding: 6px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.25px;
+  color:#fff;
+  background:linear-gradient(180deg,#1b6aa6 0%,#0e4b71 100%);
+  box-shadow:0 6px 16px rgba(14,75,113,.25), inset 0 1px 0 rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+/* título e subtítulo */
+.area-card__layer {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:18px;
+  z-index:1;
+}
+.area-card h3 {
+  font-size:22px;
+  margin:6px 0 2px;
+  font-weight:800;
+}
+.area-card p {
+  display:block;
+  font-size:14px;
+  color:#e8f4fb;
+  margin:0 0 4px;
+}
+
+/* plano de fundo */
+.area-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.15)), var(--bg,transparent);
+  background-size:cover;
+  background-position:center;
+  background-image:var(--bg);
+  transition:transform .6s ease,filter .6s ease;
+}
+.area-card:hover::before {
+  transform:scale(1.05);
+  filter:saturate(1.05);
+}
+
+/* ===== Operações: layout igual à Rações (3 colunas, centralizado) ===== */
+
+/* força 3 colunas no desktop, 2 no tablet, 1 no mobile */
+.areas .areas-grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  justify-items: stretch !important;
+}
+
+/* os cards ocupam toda a largura da coluna (sem max-width) */
+.areas .area-card{
+  width: auto !important;
+  max-width: none !important;
+  min-height: 300px;
+  border-radius: 22px;
+}
+
+/* conteúdo do card (título + subtítulo) */
+.areas .area-card__layer{ padding: 20px }
+.areas .area-card h3{
+  font-size: clamp(22px, 2.6vw, 26px);
+  font-weight: 800;
+  margin: 8px 0 6px;
+}
+.areas .area-card p{
+  display: block !important;     /* reativa o subtítulo */
+  font-size: 14px;
+  color: #e8f4fb;
+  margin: 0 0 2px;
+}
+
+/* faixa "Setor" azul */
+.areas .area-card .tag{
+  display:inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .25px;
+  color: #fff;
+  background: linear-gradient(180deg, #1b6aa6 0%, #0e4b71 100%);
+  box-shadow: 0 8px 24px rgba(14,75,113,.28), inset 0 1px 0 rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* overlay escuro suficiente pro texto, como na Rações */
+.areas .area-card::before{
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)), var(--bg, transparent);
+  background-size: cover;
+  background-position: center;
+  background-image: var(--bg);
+}
+
+/* breakpoints */
+@media (max-width: 1100px){
+  .areas .areas-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 680px){
+  .areas .areas-grid{ grid-template-columns: 1fr !important; }
+  .areas .area-card{ min-height: 260px }
+}
+
+/* ===== Operações: grid centralizado com cards fixos (estilo Rações) ===== */
+
+/* limite exato pro bloco e centralização */
+.areas .container{
+  max-width: 1160px;   /* 3 × 360 + 2 × 22 + paddings */
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 3 colunas fixas, centralizadas */
+.areas .areas-grid{
+  display: grid !important;
+  grid-template-columns: repeat(3, 360px) !important;
+  justify-content: center !important;   /* centraliza o grid no container */
+  gap: 22px !important;
+}
+
+/* cada card tem largura fixa; não estica */
+.areas .area-card{
+  width: 360px !important;
+  min-height: 300px;
+  border-radius: 22px;
+}
+
+/* breakpoints iguais ao visual da Rações */
+@media (max-width: 1140px){
+  .areas .areas-grid{
+    grid-template-columns: repeat(2, 360px) !important;
+  }
+}
+@media (max-width: 750px){
+  .areas .areas-grid{
+    grid-template-columns: min(360px, 100%) !important; /* 1 coluna */
+  }
+  .areas .area-card{
+    width: 100% !important;  /* em celulares, ocupa a largura disponível */
+    min-height: 260px;
+  }
+  .areas .container{ padding: 0 12px; }
+}
+
+/* ===== Página: Containers ===== */
+.page-containers .page-head{
+  max-width: 1160px; margin: 28px auto 10px; padding: 0 16px;
+}
+.page-containers h1{
+  font-size: clamp(26px, 4.2vw, 40px); margin: 0 0 6px;
+}
+.page-containers .sub{
+  color: var(--muted); margin: 0;
+}
+
+.page-containers .ct-grid{
+  max-width: 1160px; margin: 16px auto 40px; padding: 0 16px;
+  display: grid; grid-template-columns: 1fr; gap: 20px; /* um card por “andar” */
+}
+
+.ct-card{
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px; overflow:hidden;
+  box-shadow: var(--shadow);
+}
+.ct-media{
+  aspect-ratio: 16/7; background: var(--ph) center/cover no-repeat;
+}
+.ct-body{
+  padding: 16px 18px 20px;
+}
+.ct-badge{
+  display:inline-block; padding: 6px 14px; border-radius:999px; font-size:12px; font-weight:900; color:#fff;
+  background: linear-gradient(180deg, #1b6aa6 0%, #0e4b71 100%);
+  box-shadow: 0 8px 24px rgba(14,75,113,.28), inset 0 1px 0 rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.ct-body h2{ margin:10px 0 8px; font-size: clamp(20px, 3vw, 26px) }
+.ct-specs{ margin:0 0 6px; padding-left: 0; list-style:none }
+.ct-specs li{ margin: 6px 0 }
+.ct-note{ margin: 6px 0 0; color: var(--ink-2) }
+
+/* melhora o respiro entre cards em telas grandes */
+@media (min-width: 1100px){
+  .page-containers .ct-grid{ gap: 24px }
+  .ct-media{ aspect-ratio: 21/8 }
+}
+
+/* ===== Containers: remove o badge "Setor" ===== */
+.page-containers .ct-badge {
+  display: none !important;
+}
+
+/* ===== Containers: aumenta altura das imagens ===== */
+.page-containers .ct-media {
+  aspect-ratio: 16/11 !important;   /* antes era 16/7, agora mais alto */
+}
+@media (min-width: 1100px) {
+  .page-containers .ct-media {
+    aspect-ratio: 21/12 !important; /* telas grandes: um pouco mais alta ainda */
+  }
+}
+
+/* ===== Página: Frota ===== */
+.page-fleet .page-head{ max-width:1160px; margin:28px auto 10px; padding:0 16px }
+.page-fleet .page-head h1{ margin:0 0 6px; font-size:clamp(26px,4.2vw,40px) }
+.page-fleet .page-head .sub{ color:var(--muted); margin:0 }
+
+.fleet-grid{
+  max-width:1160px; margin:16px auto 40px; padding:0 16px;
+  display:grid; grid-template-columns:1fr; gap:22px;
+}
+@media (min-width: 980px){
+  .fleet-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+.fleet-card{
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+  position:relative;
+}
+.fleet-card::before{
+  content:""; position:absolute; inset:0 0 0 auto; width:6px; background:transparent;
+}
+.theme-panamax::before{ background: linear-gradient(180deg,#1b6aa6,#0e4b71) }   /* azul */
+.theme-neopanamax::before{ background: linear-gradient(180deg,#facc15,#f59e0b) } /* amarelo */
+
+.fleet-media{ aspect-ratio: 16/9; background: var(--ph) center/cover no-repeat; margin:16px; border-radius:16px }
+.fleet-body{ padding: 0 18px 20px }
+.fleet-body h2{ margin:6px 0 12px; font-size: clamp(20px,3vw,26px) }
+
+/* blocos lado a lado com bom respiro */
+.fleet-sections{ display:grid; grid-template-columns: 1fr; gap: 12px }
+@media (min-width: 640px){
+  .fleet-sections{ grid-template-columns: 1fr } /* mantém coluna única para leitura suave */
+}
+
+/* títulos internos */
+.fleet-block h3{ margin: 8px 0 6px; font-size: 14px; color: var(--ink-2); text-transform: uppercase; letter-spacing:.04em }
+
+/* listas com dt/dd alinhados */
+.specs, .costs{ margin:0; padding:0; }
+.specs > div, .costs > div{ display:grid; grid-template-columns: 240px 1fr; gap:10px; padding:6px 0; border-bottom:1px dashed #e5e7eb }
+.specs > div:last-child, .costs > div:last-child{ border-bottom:none }
+.specs dt, .costs dt{ font-weight:700; color:#111827 }
+.specs dd, .costs dd{ margin:0; color:#111827 }
+.costs .total dt, .costs .total dd{ font-weight:800 }
+.costs .note dt, .costs .note dd{ color: var(--ink-2) }
+
+/* ===== Página: Portos ===== */
+.page-ports .page-head{ max-width:1160px; margin:28px auto 10px; padding:0 16px }
+.page-ports .page-head h1{ margin:0 0 6px; font-size:clamp(26px,4.2vw,40px) }
+.page-ports .page-head .sub{ color:var(--muted); margin:0 }
+
+.ports-list{
+  max-width:1160px; margin:16px auto 40px; padding:0 16px;
+  display:grid; grid-template-columns:1fr; gap:22px;   /* 1 porto por linha */
+}
+
+.port-card{
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px;
+  box-shadow:var(--shadow); overflow:hidden;
+}
+
+/* duas imagens lado a lado (stack no mobile) */
+.port-media{
+  display:grid; grid-template-columns: 1fr 1fr; gap:16px;
+  padding:16px; align-items:stretch;
+}
+.port-media .img{
+  background: var(--ph) center/cover no-repeat; border-radius:16px;
+  aspect-ratio: 16/9;
+}
+@media (max-width: 720px){
+  .port-media{ grid-template-columns: 1fr }
+  .port-media .img{ aspect-ratio: 16/10 }
+}
+
+.port-body{ padding: 0 18px 18px }
+.port-body h2{ margin: 4px 0 8px; font-size: clamp(20px,3vw,26px) }
+
+.port-dl{ margin:0; padding:0 }
+.port-dl > div{
+  display:grid; grid-template-columns: 180px 1fr; gap:10px;
+  padding:6px 0; border-bottom:1px dashed #e5e7eb;
+}
+.port-dl > div:last-child{ border-bottom:none }
+.port-dl dt{ font-weight:800; color:#111827 }
+.port-dl dd{ margin:0; color:#111827 }
+
+
+/* ===== Ajuste proporção das imagens na página Portos ===== */
+.port-media {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* esquerda maior, direita menor */
+  gap: 16px;
+  padding: 16px;
+  align-items: stretch;
+}
+
+.port-media .img:first-child {
+  aspect-ratio: 16/9; /* landscape */
+}
+
+.port-media .img:last-child {
+  aspect-ratio: 3/4;  /* portrait */
+}
+
+@media (max-width: 720px) {
+  .port-media {
+    grid-template-columns: 1fr;
+  }
+  .port-media .img:last-child {
+    aspect-ratio: 16/10;
+  }
+}
+/* ===== Portos: mostrar imagens inteiras sem corte ===== */
+.port-media .img {
+  background: var(--ph) center center / contain no-repeat;
+  background-color: #f9fafb; /* cor de fundo leve atrás da imagem */
+}
+
+/* ===== Ajuste: segunda imagem do Porto de Los Angeles maior ===== */
+.port-card:nth-of-type(2) .port-media .img:last-child {
+  aspect-ratio: 1/1;           /* mais quadrada (maior verticalmente) */
+  transform: scale(1.15);      /* aumenta 15% */
+}
+
+/* ===== Card extra: imagem única em portrait ===== */
+.port-card--full .port-media.single {
+  display: block;
+  padding: 16px;
+}
+
+.port-card--full .port-media.single .img {
+  aspect-ratio: 3/4; /* formato vertical */
+  background: var(--ph) center/cover no-repeat;
+  border-radius: 20px;
+}
+
+@media (max-width: 720px) {
+  .port-card--full .port-media.single .img {
+    aspect-ratio: 4/5;
+  }
+}
+
+/* ===== Página: Rotas ===== */
+.page-routes .page-head{ max-width:1160px; margin:28px auto 10px; padding:0 16px }
+.page-routes .page-head h1{ margin:0 0 6px; font-size:clamp(26px,4.2vw,40px) }
+.page-routes .page-head .sub{ color:var(--muted); margin:0 }
+
+.routes-grid{
+  max-width:1160px; margin:16px auto 40px; padding:0 16px;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:22px;
+}
+@media (max-width:900px){ .routes-grid{ grid-template-columns:1fr } }
+
+.route-card{
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px; overflow:hidden;
+  box-shadow:var(--shadow); display:flex; flex-direction:column;
+}
+.route-images{ display:flex; flex-direction:column; gap:12px; padding:16px; }
+.route-images figure{
+  margin:0; border-radius:18px; background: var(--ph) center/cover no-repeat; overflow:hidden;
+}
+.route-images .portrait{ aspect-ratio:3/4; position:relative }
+.route-images .landscape{ aspect-ratio:16/9 }
+.route-images figcaption{
+  position:absolute; bottom:10px; left:16px;
+  background:rgba(255,255,255,.9); padding:6px 12px; border-radius:8px;
+  font-weight:800; color:#111827; font-size:15px;
+}
+
+.route-desc{ padding:0 18px 18px; color:#111827; font-size:15px; line-height:1.6; }
+
+/* imagem única embaixo */
+.route-card--full .route-image-single{
+  width:100%; aspect-ratio:21/9;
+  background: var(--ph) center/cover no-repeat;
+  border-radius:20px; min-height:420px;
+}
+@media (max-width:720px){
+  .route-card--full .route-image-single{ aspect-ratio:16/9; min-height:300px; }
+}
+
+/* ===== SOBRE — cards grandes com foto à esquerda ===== */
+.about-feature-cards .container{ max-width:1160px; margin: 8px auto 24px; padding: 0 16px }
+.feat-card{
+  display:grid; grid-template-columns: 0.9fr 1.1fr; gap:18px;
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px; box-shadow:var(--shadow);
+  padding:16px; margin-bottom:18px; align-items:stretch;
+}
+.feat-media{
+  border-radius:16px; background: var(--ph) center/cover no-repeat; min-height: 260px;
+}
+.feat-body{ padding: 6px 6px 6px 2px }
+.feat-body h3{ margin: 6px 0 8px; font-size: clamp(20px,3vw,26px) }
+.feat-body p{ margin: 8px 0; color:#111827 }
+.feat-body .small{ color: var(--ink-2) }
+
+.feat-head{ display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap }
+.cta-chip{
+  display:inline-block; padding:6px 12px; border-radius:999px; font-weight:800; text-decoration:none;
+  background:#F2CF63; color:#111827; border:1px solid rgba(0,0,0,.08);
+}
+
+@media (max-width: 860px){
+  .feat-card{ grid-template-columns: 1fr; }
+  .feat-media{ min-height: 220px }
+}
+/* ===== SOBRE — cards grandes com foto à esquerda ===== */
+.about-feature-cards .container{ max-width:1160px; margin: 8px auto 24px; padding: 0 16px }
+.feat-card{
+  display:grid; grid-template-columns: 0.9fr 1.1fr; gap:18px;
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px; box-shadow:var(--shadow);
+  padding:16px; margin-bottom:18px; align-items:stretch;
+}
+.feat-media{
+  border-radius:16px; background: var(--ph) center/cover no-repeat; min-height: 260px;
+}
+.feat-body{ padding: 6px 6px 6px 2px }
+.feat-body h3{ margin: 6px 0 8px; font-size: clamp(20px,3vw,26px) }
+.feat-body p{ margin: 8px 0; color:#111827 }
+.feat-body .small{ color: var(--ink-2) }
+
+.feat-head{ display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap }
+.cta-chip{
+  display:inline-block; padding:6px 12px; border-radius:999px; font-weight:800; text-decoration:none;
+  background:#F2CF63; color:#111827; border:1px solid rgba(0,0,0,.08);
+}
+
+@media (max-width: 860px){
+  .feat-card{ grid-template-columns: 1fr; }
+  .feat-media{ min-height: 220px }
+}
+/* ==== SOBRE (com imagens maiores) ==== */
+
+/* Integração vertical */
+.integration { padding: 44px 0; }
+.vert-timeline {
+  display: flex; flex-direction: column; gap: 22px; margin-top: 18px;
+  border-left: 4px solid rgba(19,116,49,0.08); padding-left: 22px;
+}
+.vt-item {
+  display: flex; gap: 22px; align-items: center;
+  background: #fff; border: 1px solid #eef2f7; border-radius: 16px; padding: 14px;
+  box-shadow: 0 10px 28px rgba(9,20,10,0.06);
+}
+.vt-media{
+  width: 420px; height: 240px;        /* >>> maior <<< */
+  background-size: cover; background-position: center;
+  border-radius: 12px; flex: 0 0 420px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+.vt-body h3{ margin: 0 0 8px; font-size: 20px; color: var(--green-900) }
+.vt-body p{ margin: 0; color: var(--ink-2) }
+
+/* Fazendas com IMAGEM */
+.farm-timeline{ padding: 44px 0; }
+/* antes:
+.farms-grid{ display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top:12px; }
+*/
+.farms-grid{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr; /* uma por linha */
+  margin-top: 12px;
+}
+/* overview com imagem */
+.overview-card{
+  display: block;
+  padding: 0;              /* sem padding no contêiner, vai no body */
+  overflow: hidden;
+  border-radius: 12px;
+}
+.overview-media{
+  width: 100%;
+  height: 140px;           /* banner landscape */
+  background-size: cover;
+  background-position: center;
+}
+.overview-body{ padding: 12px; }
+.overview-body h4{ margin: 0 0 6px; }
+
+.farm-card{
+  background:#fff; border:1px solid #eef2f7; border-radius:16px; overflow:hidden;
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+}
+.farm-media{
+  width:100%; height: 220px;          /* landscape */
+  background-size: cover; background-position:center;
+}
+.farm-body{ padding:12px 14px }
+.farm-body h3{ margin:0 0 6px }
+.farm-body p{ margin:0; color:var(--muted) }
+
+/* Leadership */
+.leadership{ padding: 40px 0; }
+.leadership-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:stretch; }
+.lead-card{ display:flex; gap:16px; background:#fff; border:1px solid #eef2f7; border-radius:16px; padding:14px; box-shadow: var(--shadow); }
+.lead-photo{ width:260px; height:160px; background-size:cover; background-position:center; border-radius:12px; flex:0 0 260px; }
+.lead-body h3{ margin:0 0 6px }
+.lead-body p.small{ margin-top:8px; color:var(--muted); font-size:13px }
+
+/* Mini overview cards */
+.mini-overview{ padding:40px 0; }
+.overview-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:12px; }
+.overview-card{ display:block; background:#fff; border:1px solid #eef2f7; border-radius:12px; padding:12px; text-decoration:none; color:var(--ink); box-shadow: var(--shadow); }
+.overview-card h4{ margin:0 0 6px }
+
+/* Galeria — landscape grande, 2 colunas */
+.gallery{ padding:40px 0 72px; }
+.gallery-grid{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(2, 1fr);  /* >>> duas por linha <<< */
+  margin-top: 12px;
+}
+.gal-item{
+  background:#fff; border:1px solid #eef2f7; border-radius:14px; overflow:hidden;
+  box-shadow: var(--shadow);
+}
+.gal-item img{
+  display:block; width:100%; height: 320px;  /* >>> maior e horizontal <<< */
+  object-fit: cover; object-position: center;
+}
+.gal-item figcaption{ padding:10px 12px; font-size:14px; color:var(--muted) }
+
+/* Responsivo */
+@media (max-width: 1080px){
+  .vt-media{ width: 100%; height: 260px; flex: 1 1 auto; }
+  .vt-item{ flex-direction: column; align-items: stretch; }
+  .leadership-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 720px){
+  .gal-item img{ height: 240px; }
+  .gallery-grid{ grid-template-columns: 1fr; } /* cai para 1 coluna no mobile */
+}
+/* Logos quadradas SEM cortar */
+.lead-photo{
+  width: 128px;
+  aspect-ratio: 1 / 1;                 /* quadrada */
+  background: #fff center / contain no-repeat; /* <- contain não corta */
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;                  /* 0 se quiser reto */
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  flex: 0 0 auto;
+  padding: 6px;                         /* respiro para não encostar nas bordas */
+}
+
+@media (max-width: 640px){
+  .lead-photo{ width: 100px; padding: 4px; }
+}
+/* Link preenchendo o card sem alterar o layout flex do .lead-card */
+.lead-card .lead-link{
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+}
+/* escopo: só o card da Group */
+.lead-card--group { position: relative; overflow: hidden; }
+
+/* link interno mantém layout */
+.lead-card--group .lead-link{
+  display: flex; gap: 16px; align-items: flex-start;
+  text-decoration: none; color: inherit; width: 100%;
+}
+
+/* efeito “high-tech” sutil */
+.lead-card--group{
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  border: 1px solid rgba(17,17,17,0.06);
+}
+.lead-card--group::before{
+  content:""; position:absolute; inset:-1px;
+  background: radial-gradient(120% 60% at 0% 0%, rgba(254,198,51,.20), transparent 60%),
+              radial-gradient(120% 60% at 100% 100%, rgba(19,116,49,.16), transparent 60%);
+  opacity: 0; transition: opacity .28s ease;
+  pointer-events:none;
+}
+.lead-card--group:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  border-color: rgba(254,198,51,.35);
+}
+.lead-card--group:hover::before{ opacity: .8; }
+
+/* micro-parallax na imagem */
+.lead-card--group .lead-photo{
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.lead-card--group:hover .lead-photo{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+/* cursor de link apenas nesse card */
+.lead-card--group:hover { cursor: pointer; }
+
+/* Chip “Acessar site” (fica logo abaixo do h3) */
+.lead-card--group .cta-chip{
+  display:inline-flex; align-items:center; gap:8px;
+  margin: 4px 0 6px 0; padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600; font-size: .85rem; line-height: 1;
+  background: linear-gradient(180deg, #FEC633, #e8b42d);
+  color: #111; border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.lead-card--group .cta-chip::after{
+  content: "↗"; font-size: .9em; transform: translateY(1px);
+}
+.lead-card--group:hover .cta-chip{
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #ffd456, #f1bf37);
+  box-shadow: 0 6px 16px rgba(254,198,51,.35);
+}
+
+
+
+
+/* ===== Integração logística (cards com imagem, estilo Rações) ===== */
+.integration .container{ max-width:1160px; margin: 0 auto; padding: 0 16px }
+.integration .section-head h2{ margin-bottom:6px }
+.vert-timeline{ display:flex; flex-direction:column; gap:16px; margin-top:8px }
+
+.vt-item{
+  display:grid; grid-template-columns: 0.9fr 1.1fr; gap:16px;
+  background:#fff; border:1px solid #e5e7eb; border-radius:22px;
+  box-shadow: var(--shadow); padding:16px; align-items:stretch;
+}
+.vt-media{
+  border-radius:16px;
+  background-size: cover; background-position:center; background-repeat:no-repeat;
+  min-height: 180px;
+}
+.vt-body h3{ margin:4px 0 6px; font-size:16px; font-weight:800 }
+.vt-body p{ margin:0; color:#111827 }
+
+@media (max-width: 860px){
+  .vt-item{ grid-template-columns: 1fr }
+  .vt-media{ min-height: 160px }
+}

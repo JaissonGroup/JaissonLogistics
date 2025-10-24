@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jaisson Logistics — Itapoá ➜ Los Angeles</title>
-  <meta name="description" content="Frota e operações door-to-door: Itapoá → Los Angeles. Eficiência por TEU, escolha de navio, rota e mix de carga." />
+  <title>Jaisson Logistics — Transporte Marítimo Internacional</title>
+  <meta name="description" content="Foco em contêineres, frota, portos e rotas. Velocidade, segurança e eficiência ponta a ponta." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="logistics.css" />
+  <link rel="stylesheet" href="logistics-styles.css" />
   <link rel="icon" href="jaisson-logistics-logo-transp.png" />
 </head>
 <body>
@@ -15,7 +15,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#">
-        <img style="border-radius: .5rem;" src="jaisson-logistics-text.png" alt="Jaisson Logistics" width="180" height="48"/>
+        <img src="jaisson-logistics-text.png" alt="Jaisson Logistics" width="160" height="28" />
       </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Abrir menu" />
@@ -25,16 +25,21 @@
 
       <nav class="main-nav" aria-label="Principal">
         <ul>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#frota">Frota</a></li>
-          <li><a href="#containers">Contêineres</a></li>
-          <li><a href="#portos">Portos</a></li>
-          <li><a href="#rotas">Rotas & Custos</a></li>
+          <li><a href="#areas">Operações</a></li>
+          <li><a href="containers.html">Containers</a></li>
+          <li><a href="frota.html">Frota</a></li>
+          <li><a href="portos.html">Portos</a></li>
+          <li><a href="rotas.html">Rotas</a></li>
+          <li><a href="rastreamento.html">Rastreamento</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="esg.html">ESG</a></li>
+          <!-- GitHub à direita -->
           <li class="sep"></li>
           <li>
-            <a class="github-link" href="https://github.com/JaissonGroup/JaissonLogistics" target="_blank" rel="noopener">
-              <!-- GitHub icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.6.4-1.1.7-1.3-2.6-.3-5.4-1.3-5.4-6a4.6 4.6 0 0 1 1.2-3.1c-.1-.3-.5-1.5.1-3 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3a4.6 4.6 0 0 1 1.2 3.1c0 4.7-2.8 5.7-5.5 6 .4.3.8.9.8 1.9v2.9c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            <a class="github-link" href="https://github.com/JaissonGroup/JaissonLogistics" target="_blank" aria-label="GitHub Jaisson Logistics">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.6.4-1.1.7-1.3-2.6-.3-5.4-1.3-5.4-6a4.6 4.6 0 0 1 1.2-3.1c-.1-.3-.5-1.5.1-3 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3a4.6 4.6 0 0 1 1.2 3.1c0 4.7-2.8 5.7-5.5 6 .4.3.8.9.8 1.9v2.9c0 .3.2.7.8.6A10.97 10.97 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+              </svg>
               <span>GitHub</span>
             </a>
           </li>
@@ -43,295 +48,145 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-bg" style="--ph: url('https://images.unsplash.com/photo-1468324187476-c4e804213545?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1173')"></div>
+    <div class="hero-bg" style="--ph: url('https://marlink.com/_Resources/Persistent/9/1/1/1/9111d28f94013d19819e6e4bafb5a7f75dbfefbf/Shipping%20hero-7112x3724-1200x628.jpeg');"></div>
     <div class="container hero-content">
-      <span class="pill">Itapoá ➜ Los Angeles</span>
-      <h1>Jaisson Logistics</h1>
-      <p>Operamos com <strong>disciplina de custo por TEU</strong>. Escolha ótima entre Panamax e Neopanamax, via <em>Canal do Panamá</em> ou <em>Cabo Horn</em>, conforme mix de carga (Dry, Reefer, Alto Valor, Rações).</p>
+      <span class="pill">Transporte Marítimo Internacional</span>
+      <h1>Do contêiner ao porto, <br>velocidade, segurança e eficiência.</h1>
+      <p>Operamos fretes internacionais com foco em custo por TEU, confiabilidade de rota e rastreabilidade de ponta a ponta.</p>
       <div class="hero-ctas">
-        <a class="btn btn-fill" href="#rotas">Comparar rotas</a>
-        <a class="btn btn-outline" href="#containers">Ver contêineres</a>
+        <a class="btn btn-fill" href="#areas">Conheça nossas áreas</a>
+        <a class="btn btn-outline" href="sobre.html">Sobre a Logistics</a>
       </div>
     </div>
   </section>
 
- <!-- TRUST BAR -->
-<section class="trustbar">
-  <div class="container trustbar-grid">
-    <div class="trust-item">
-      <div class="icn">⚡</div>
+  <!-- Trustbar -->
+  <section class="trustbar">
+    <div class="container trustbar-grid">
+      <div class="trust-item">
+        <div class="icn">⚡</div>
+        <div><strong>Velocidade Máxima</strong><span>Operações ágeis de ponta a ponta</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="icn">🛡️</div>
+        <div><strong>Segurança Extrema</strong><span>Rastreabilidade e controle total da carga</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="icn">📈</div>
+        <div><strong>Eficiência Total</strong><span>Menor custo por tonelada‑km</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="icn">✅</div>
+        <div><strong>Entrega Garantida</strong><span>Compromisso com prazo e desempenho</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas / Operações -->
+  <section id="areas" class="areas">
+    <div class="areas-grid">
+  <a class="area-card" href="containers.html" style="--bg: url('https://plus.unsplash.com/premium_photo-1661932036915-4fd90bec6e8a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170')">
+    <div class="area-card__layer">
+      <span class="tag">Containers</span>
+      <h3>Containers</h3>
+      <p>Dry Box 20’ | Dry Box 40’ | Reefer 40’</p>
+    </div>
+  </a>
+
+  <a class="area-card" href="frota.html" style="--bg: url('https://ladingcargo.com/blog/wp-content/uploads/2023/10/Cargo-Ships-The-Backbone-of-Global-Trade-1250x834.jpg')">
+    <div class="area-card__layer">
+      <span class="tag">Frota</span>
+      <h3>Frota</h3>
+      <p>Navio Panamax | Navio NeoPanamax</p>
+    </div>
+  </a>
+
+  <a class="area-card" href="portos.html" style="--bg: url('https://images.unsplash.com/photo-1678182451047-196f22a4143e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171')">
+    <div class="area-card__layer">
+      <span class="tag">Portos</span>
+      <h3>Portos</h3>
+      <p>Porto de Itapoá | Port of Los Angeles</p>
+    </div>
+  </a>
+
+  <a class="area-card" href="rotas.html" style="--bg: url('https://npp-co.com/wp-content/uploads/2023/06/Main-container-shipping-routes-busiest-map-%D8%B3%D8%A7%DB%8C%D8%AA.jpg')">
+    <div class="area-card__layer">
+      <span class="tag">Rotas</span>
+      <h3>Rotas</h3>
+      <p>Via Canal do Panamá | Via Cabo Horn</p>
+    </div>
+  </a>
+
+  <a class="area-card" href="rastreamento.html" style="--bg: url('https://i0.wp.com/marineandoffshoreinsight.com/wp-content/uploads/2018/05/5-Best-Free-ship-tracking-websites.jpg?fit=900%2C545&ssl=1')">
+    <div class="area-card__layer">
+      <span class="tag">Rastreamento</span>
+      <h3>Rastreamento</h3>
+      <p>Tracking em TEMPO REAL dos nossos navios</p>
+    </div>
+  </a>
+
+  <a class="area-card" href="esg.html" style="--bg: url('https://bansarship.com/wp-content/uploads/2024/12/What-is-Green-Shipping-Main-Strategies-and-3-Benefits.jpg')">
+    <div class="area-card__layer">
+      <span class="tag">Sustentabilidade</span>
+      <h3>Sustentabilidade</h3>
+      <p>Práticas ambientais e sociais para impacto positiva real.</p>
+    </div>
+  </a>
+</div>
+
+
+  </section>
+
+  <!-- Sustentabilidade CTA -->
+  <section class="cta-sustain">
+    <div class="container cta-sustain-inner">
       <div>
-        <strong>Velocidade Máxima</strong>
-        <span>Operações ágeis de ponta a ponta</span>
+        <h3>Sustentabilidade como estratégia</h3>
+        <p>Redução de emissões e cuidado com os nossos oceanos. Transportar também é cuidar.</p>
       </div>
+      <a class="btn btn-fill alt" href="esg.html">Nossas iniciativas</a>
     </div>
+  </section>
 
-    <div class="trust-item">
-      <div class="icn">🛡️</div>
-      <div>
-        <strong>Segurança Extrema</strong>
-        <span>Rastreabilidade e controle total da carga</span>
+  <!-- Sobre -->
+  <section class="about">
+    <div class="container about-grid">
+      <div class="about-media">
+        <div class="img-ph" style="--ph: url('jaisson-logistics.png')"></div>
       </div>
-    </div>
-
-    <div class="trust-item">
-      <div class="icn">📈</div>
-      <div>
-        <strong>Eficiência Total</strong>
-        <span>Menor custo por tonelada-quilômetro</span>
-      </div>
-    </div>
-
-    <div class="trust-item">
-      <div class="icn">✅</div>
-      <div>
-        <strong>Entrega Garantida</strong>
-        <span>Compromisso com prazo e desempenho</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- SERVIÇOS -->
-  <section id="servicos" class="services">
-    <div class="container">
-      <header class="section-head">
-        <h2>Do Brasil ao Pacífico</h2>
-        <p>Planejamento de navio, rota, janela no porto e mix de contêiner — focado em margem.</p>
-      </header>
-
-      <div class="services-grid">
-        <article class="svc-card">
-          <div class="svc-media" style="--ph: url('https://images.unsplash.com/photo-1494961104209-3c223057bd26?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1102')"></div>
-          <div class="svc-body">
-            <h3>FCL Dry & Reefer</h3>
-            <p>20’ e 40’ (Dry), 40’ Reefer para cargas sensíveis — temperatura monitorada.</p>
-          </div>
-        </article>
-        <article class="svc-card">
-          <div class="svc-media" style="--ph: url('https://cdn.britannica.com/73/75873-050-D9FF99F9/tugboat-one-ship-locks-Panama-Canal.jpg')"></div>
-          <div class="svc-body">
-            <h3>Rotas Panamá / Horn</h3>
-            <p>Trade-off entre tempo e pedágio. Escolhemos pelo menor custo por TEU no seu cenário.</p>
-          </div>
-        </article>
-        <article class="svc-card">
-          <div class="svc-media" style="--ph: url('https://i0.wp.com/marineandoffshoreinsight.com/wp-content/uploads/2018/05/5-Best-Free-ship-tracking-websites.jpg?fit=900%2C545&ssl=1')"></div>
-          <div class="svc-body">
-            <h3>Rastreamento & ESG</h3>
-            <p>Tracking por viagem e estimativa de CO₂/t-TEU para relatórios ESG.</p>
-          </div>
-        </article>
+      <div class="about-text">
+        <h2>Sobre a Jaisson Logistics</h2>
+        <p>Operamos transporte marítimo internacional com foco total em eficiência, velocidade e segurança.</p>
+        <ul class="bullets">
+          <li>Planejamento de rotas eficientes.</li>
+          <li>Controle de custos.</li>
+          <li>Rastreamento ponta a ponta e gestão especializada.</li>
+        </ul>
+        <a class="btn btn-outline" href="sobre.html">Conheça nossa história</a>
       </div>
     </div>
   </section>
 
- <!-- FROTA -->
-<section id="frota" class="fleet">
-  <div class="container">
-    <header class="section-head">
-      <h2>Classes de Navio</h2>
-      <p>Parâmetros operacionais das duas classes usadas no corredor Itapoá ⇄ Los Angeles.</p>
-    </header>
-
-    <div class="fleet-grid">
-      <!-- PANAMAX -->
-      <article class="fleet-card size-medium">
-        <div class="fleet-media" style="--ph: url('https://i.ibb.co/bMWRF17K/Maersk-Virginia.png')"></div>
-        <div class="fleet-info">
-          <h3>Panamax</h3>
-          <ul class="meta">
-            <li><strong>Tamanho (Comprimento):</strong> 294 metros</li>
-            <li><strong>Peso Máximo de Carga:</strong> 67.500 toneladas</li>
-            <li><strong>Boca Máxima:</strong> ≈ 32,3 m</li>
-            <li><strong>Calado Máximo:</strong> ≈ 12 m</li>
-            <li><strong>Capacidade de Carga:</strong> 5.000 TEUs</li>
-          </ul>
-
-          
-          <div style="border-top: 1px solid #e2e8f0; margin: 8px 0 10px; width: 85%;"></div>
-          <h4 style="margin: 6px 0 4px; color: var(--green-900); font-size: 15px;">Custos Operacionais</h4>
-
-          <ul class="meta" style="font-size: 14px;">
-            <li><strong>OpEx (Marinheiros, Manutenção, Seguro):</strong> US$ 20.000/dia</li>
-            <li><strong>Consumo de Combustível:</strong> 80 ton/dia</li>
-            <li><strong>Valor da Tonelada:</strong> US$ 650 × 80 = <strong>US$ 52.000/dia</strong></li>
-            <li><strong>Valor Total (OpEx + Combustível):</strong> <strong>US$ 72.000/dia</strong></li>
-            <li><strong>*Custo Pedágio Canal do Panamá </strong> <strong>US$ 450.000</strong></li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- NEOPANAMAX -->
-      <article class="fleet-card size-large">
-        <div class="fleet-media" style="--ph: url('https://i.ibb.co/fYKj2n6d/image-61.png')"></div>
-        <div class="fleet-info">
-          <h3>Neopanamax</h3>
-          <ul class="meta">
-            <li><strong>Tamanho (Comprimento):</strong> 366 metros</li>
-            <li><strong>Peso Máximo de Carga:</strong> 135.000 toneladas</li>
-            <li><strong>Boca Máxima:</strong> ≈ 49 m</li>
-            <li><strong>Calado Máximo:</strong> ≈ 15,2 m</li>
-            <li><strong>Capacidade de Carga:</strong> 14.000 a 15.000 TEUs</li>
-          </ul>
-
-          <div style="border-top: 1px solid #e2e8f0; margin: 8px 0 10px; width: 85%;"></div>
-          <h4 style="margin: 6px 0 4px; color: var(--green-900); font-size: 15px;">Custos Operacionais</h4>
-
-
-          <ul class="meta" style="font-size: 14px;">
-            <li><strong>OpEx (Marinheiros, Manutenção, Seguro):</strong> US$ 35.000/dia</li>
-            <li><strong>Consumo de Combustível:</strong> 120 ton/dia</li>
-            <li><strong>Valor da Tonelada:</strong> US$ 650 × 120 = <strong>US$ 78.000/dia</strong></li>
-            <li><strong>Valor Total (OpEx + Combustível):</strong> <strong>US$ 113.000/dia</strong></li>
-            <li><strong>*Custo Pedágio Canal do Panamá </strong> <strong>US$ 1.500.000</strong></li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- CONTÊINERES -->
-  <section id="containers" class="containers">
-    <div class="container">
-      <header class="section-head">
-        <h2>Tipos de Contêineres</h2>
-        <p>Dry (padrão) e Reefer (refrigerado). Dimensões e usos recomendados.</p>
-      </header>
-
-      <div class="cont-grid">
-        <article class="cont-card">
-          <div class="cont-media" style="--ph: url('https://i.ibb.co/7qJLN8d/Gemini-Generated-Image-ugg9uhugg9uhugg9.png')"></div>
-          <div class="cont-body">
-            <h3>Dry Box 20’</h3>
-            <ul class="meta">
-              <li><strong>Capacidade:</strong> 1 TEU | 28 t.</li>
-              <li><strong>Dimensões:</strong> 6,06 m. x 2,44 m. x 2,59 m.</li>
-              <li><strong>Volume interno:</strong> 33 m³</li>
-            </ul>
-          </div>
-        </article>
-        <article class="cont-card">
-          <div class="cont-media" style="--ph: url('https://i.ibb.co/QRBsSCH/Gemini-Generated-Image-rf1hfarf1hfarf1h.png')"></div>
-          <div class="cont-body">
-            <h3>Dry Box 40’</h3>
-            <ul class="meta">
-              <li><strong>Capacidade:</strong> 2 TEUs| 28 t.</li>
-              <li><strong>Dimensões:</strong> 12,19 m. x 2,44 m. x 2,59 m.</li>
-              <li><strong>Volume interno:</strong> 67 m³</li>
-            </ul>
-          </div>
-        </article>
-        <article class="cont-card">
-          <div class="cont-media" style="--ph: url('https://i.ibb.co/zVR9RD8Y/Gemini-Generated-Image-lcgv09lcgv09lcgv.png')"></div>
-          <div class="cont-body">
-            <h3>Reefer 40’</h3>
-            <ul class="meta">
-              <li><strong>Capacidade:</strong> 2 TEUs| 27 t.</li>
-              <li><strong>Dimensões</strong> 12,19 m. x 2,44 m. x 2,59 m.</li>
-              <li><strong>Volume interno:</strong> 58 m³</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-
-  
-    </div>
-  </section>
-
-  <!-- PORTOS -->
-<section id="portos" class="ports">
-  <div class="container">
-    <header class="section-head">
-      <h2>Portos de Operação</h2>
-      <p>Portos base do corredor: Brasil ⇄ Estados Unidos.</p>
-    </header>
-
-    <div class="cont-grid">
-      <!-- Itapoá -->
-      <article class="cont-card">
-        <!-- troque a URL pela imagem do porto de Itapoá -->
-        <div class="cont-media" style="--ph: url('https://rodoquick.com.br/wp-content/uploads/2019/05/A-Historia-do-Porto-Itapoa.jpg')"></div>
-        <div class="cont-body">
-          <h3>Porto de Itapoá (SC)</h3>
-          <ul class="meta">
-            <li><strong>Localização:</strong> Itapoá, Santa Catarina (Brasil)</li>
-            <li><strong>Área do porto:</strong> 400.000 m²</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Los Angeles -->
-      <article class="cont-card">
-        <!-- troque a URL pela imagem do porto de Los Angeles -->
-        <div class="cont-media" style="--ph: url('https://www.railwayage.com/wp-content/uploads/2023/06/Port-of-Los-Angeles.png')"></div>
-        <div class="cont-body">
-          <h3>Port of Los Angeles (CA)</h3>
-          <ul class="meta">
-            <li><strong>Localização:</strong> Los Angeles, California (Estados Unidos)</li>
-            <li><strong>Área do porto:</strong> 30.000.000 km²</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-  <!-- ROTAS & CUSTOS (simplificado) -->
-  <section id="rotas" class="routes">
-    <div class="container">
-      <header class="section-head">
-        <h2>Rotas</h2>
-        <p>Itapoá → Los Angeles | escolha entre tempo e previsibilidade.</p>
-      </header>
-
-      <div class="routes-grid">
-        <!-- Panamá -->
-        <article class="route-card">
-          <div class="route-media" style="--ph: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Panama_Canal_Map_EN.png/1162px-Panama_Canal_Map_EN.png')"></div>
-          <div class="route-body">
-            <h3>Via Canal do Panamá</h3>
-            <p class="desc">Rota mais curta, porém com custos de pedágio e longas filas. Faz a travessia de um oceano para o outro por eclusas e janelas de passagem programadas. </p>
-          </div>
-        </article>
-
-        <!-- Cabo Horn -->
-        <article class="route-card">
-          <div class="route-media" style="--ph: url('https://cdn.sanity.io/images/38m5o3fc/production/d087364d3abe6d2a71bb1c0412e8fab5ed72cd81-1280x744.jpg')"></div>
-          <div class="route-body">
-            <h3>Via Cabo Horn</h3>
-            <p class="desc">Alternativa sem pedágio e sem filas, porém mais longa e com águas extremamente agitadas e perigosas. Faz a travessia de um oceano para o outro contornando a América do Sul.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-    
-  </section>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="f-col">
-        <img src="jaisson-logistics-logo-transp.png" alt="Jaisson Logistics" width="132" />
-        <p class="f-copy">Jaisson Logistics — eficiência por TEU no corredor Itapoá ⇄ Los Angeles.</p>
+        <strong>JAISSON LOGISTICS</strong>
+        <p class="f-copy">© 2025. Todos os direitos reservados.</p>
       </div>
       <nav class="f-nav">
-        <a href="#servicos">Serviços</a>
-        <a href="#frota">Frota</a>
-        <a href="#containers">Contêineres</a>
-        <a href="#rotas">Rotas & Custos</a>
+        <a href="#areas">Operações</a>
+        <a href="containers.html">Containers</a>
+        <a href="frota.html">Frota</a>
+        <a href="portos.html">Portos</a>
+        <a href="rotas.html">Rotas</a>
+        <a href="rastreamento.html">Rastreamento</a>
+        <a href="esg.html">ESG</a>
+        <a href="sobre.html">Sobre</a>
       </nav>
-      <p class="f-small">© Jaisson Group</p>
+      <p class="f-small">feito com foco em <strong>resultado</strong></p>
     </div>
   </footer>
 </body>
