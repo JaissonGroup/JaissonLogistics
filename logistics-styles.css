@@ -897,3 +897,19 @@ body{
   .vt-item{ grid-template-columns: 1fr }
   .vt-media{ min-height: 160px }
 }
+
+
+/* Destaque suave nos cards da página Sobre */
+.card-hover {
+  transition: transform .25s ease, box-shadow .3s ease;
+  will-change: transform;
+}
+
+.card-hover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+.card-hover:active {
+  transform: scale(1.01);
+}
+
